@@ -1,0 +1,32 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>RTP Checker</title>
+</head>
+<body>
+    <h1>RTP Checker</h1>
+    <form method="POST">
+        <input type="text" name="id_user" placeholder="Masukkan ID Anda" required>
+        <button type="submit">Cek RTP</button>
+    </form>
+
+    {% if rtp %}
+        <h2>Hasil untuk ID: {{ id_user }}</h2>
+        <h3>🎯 Game Gacor:</h3>
+        <ul>
+            {% for game in rtp.gacor %}
+                <li>{{ game }} <a href="https://omtogel.com" target="_blank">Mainkan</a></li>
+            {% endfor %}
+        </ul>
+
+        <h3>🚫 Game yang Harus Dihindari:</h3>
+        <ul>
+            {% for game in rtp.hindari %}
+                <li>{{ game }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
